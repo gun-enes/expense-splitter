@@ -50,6 +50,7 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+
 /**
  * GET /
  * Admin - Register Page
@@ -130,25 +131,6 @@ router.get('/registerfailed', async (req, res) => {
   }
 
 });
-//Register Successful route
-router.get('/loginsuccess', authMiddleware, async (req, res) => {
-  try {
-    const locals = {
-      title: 'Successful Registration',
-      description: 'Simple Blog created with NodeJs, Express & MongoDb.'
-    }
-
-    res.render('admin/loginsuccess', {
-      locals,
-      data,
-      layout: adminLayout
-    });
-
-  } catch (error) {
-    console.log(error);
-  }
-
-});
 /**
  * POST /
  * Admin - Register
@@ -176,10 +158,7 @@ router.post('/register', async (req, res) => {
 
 
 
-router.get('/logout', (req, res) => {
-  res.clearCookie('token');
-  res.redirect('/');
-});
+
 /**
  * GET /
  * Dashboard
@@ -356,7 +335,7 @@ router.post('/add-expense/:id', authMiddleware, async (req, res) => {
     console.log(error);
   }
 });
-
+ 
 router.get('/expenses/:id', authMiddleware, async (req, res) => {
   try {
     const locals = {
