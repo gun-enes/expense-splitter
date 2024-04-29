@@ -1,0 +1,27 @@
+<div class="admin-title">
+  <h2>Add New Expense</h2>
+</div>
+
+<form action="/add-expense/<%= data._id %>" method="POST">
+  <label for="payer"><p>Who payed it?</p></label>
+   <select name = "payer" id="dropdown">
+    <option value="">Select User</option>
+    <% data.participants.forEach(user => { %>
+        <option value="<%= user %>"><%= user %></option>
+    <% }); %>
+</select>
+
+
+  <label for="cost"><p>How much?</p></label>
+  <input type="text" placeholder="Amount in Turkish Lira" name="cost" required>
+  
+  <label for="description"><p>What for?</p></label>
+  <input type="text" placeholder="Description" name="description" required>
+
+  <label for="date"><p>When?</p></label>
+  <input type="date" name="date" required>
+
+
+  <input type="submit" value="Add Expense" class="btn">
+
+</form>

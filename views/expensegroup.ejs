@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Overview </h3>
+      <button class="add-button" onclick="addExpense()">Add Expense</button>
+    </div>
+    <div class="card-body">
+        <div class="item">
+          <span class="label">Total Cost:</span>
+          <span class="value"><%= total %></span>
+        </div>
+    </div>
+    <button class="view-expenses" onclick="viewExpenses()">View Expenses</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Debt Balancing</h3>
+    </div>
+    <div class="card-body">
+      <% balance.forEach(b => { %>
+        <div class="listmember">
+            <ul>
+              <li><%= b %></li>
+            </ul>
+          </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <script>
+    function viewExpenses() {
+      window.location.href = "/expenses/<%= data._id %>";
+    }
+
+    function addExpense() {
+      window.location.href = "/add-expense/<%= data._id%>";
+    }
+  </script>

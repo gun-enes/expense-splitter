@@ -1,0 +1,15 @@
+<img src="<%= data.image %>">
+<div class="info-row">
+    <h2 class="articles__heading">Expenses</h2>
+</div>
+
+
+
+<% data.forEach(data => { %>
+  <div class="listmember">
+      <ul>
+        <li><%= data.payer %> paid <%= data.cost %> lira for <%= data.description %></li>
+        <li class="subpoint">At <%= data.date %></li>
+      </ul>
+    </div>
+<% }) %>

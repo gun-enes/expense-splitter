@@ -1,0 +1,15 @@
+
+<div class="info-row">
+    <h2>Expense Groups</h2>
+    <a href="/add-expensegroup" class="navlink">Add Expense Group</a>
+  </div>
+
+  <div class="card-body">
+      <% data.forEach(data => { %>
+        <div class="listmember">
+            <a href="/expensegroup/<%= data._id %>">
+              <%= data.name %> &nearr;
+            </a>
+          </div>
+      <% }) %>
+    </div>

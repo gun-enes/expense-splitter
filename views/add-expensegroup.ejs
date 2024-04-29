@@ -1,0 +1,33 @@
+<div class="admin-title">
+    <h2>Add New Expense Group</h2>
+  </div>
+  
+  <form action="/add-expensegroup" method="POST">
+  
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Name" name="name" required>
+
+    <label for="date"><b>Date</b></label>
+    <input type="date" placeholder="Date" name="date" required>
+
+     <div id="participantsContainer">
+            <label for="participants">Participants:</label><br>
+            <input type="text" class="participantInput" name="participants" required>
+        </div>
+        <button type="button" onclick="addParticipant()">Add Participant</button><br><br>
+  
+    <script>
+        function addParticipant() {
+            const participantsContainer = document.getElementById('participantsContainer');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'participantInput';
+            input.name = 'participants';
+            input.required = true;
+            participantsContainer.appendChild(document.createElement('br'));
+            participantsContainer.appendChild(input);
+        }
+    </script>
+  
+    <input type="submit" value="Add" class="btn">
+  </form>
